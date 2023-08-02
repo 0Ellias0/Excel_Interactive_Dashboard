@@ -41,4 +41,34 @@ df_selection = df.query(
 
 
 # plotting dataframe
-st.dataframe(df_selection)
+#st.dataframe(df_selection)
+
+df_selection.describe()
+
+
+# -------MAINPAGE----------
+
+st.title(":bar_chart: Partner dashboard")
+st.markdown("##")
+
+
+df_selection['Lead Price Total'] = df_selection['Lead Price Total'].str.replace('$', '')
+total_lead_price = df_selection["Lead Price Total"].sum()
+
+total_billable_leads = df_selection["Billable"].value_counts()['Yes']
+
+print(total_lead_price)
+
+
+left_column, right_column = st.columns(2)
+
+with left_column:
+    st.subheader("Total Sales:")
+    st.subheader(f"US $ {total_lead_price:,}")
+with right_column:
+    st.subheader("Total Billable lead:")
+    st.subheader(f" # {total_billable_leads}")
+
+
+st.markdown("---")
+
