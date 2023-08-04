@@ -77,3 +77,21 @@ with right_column:
 
 st.markdown("---")
 
+
+# Sales by task [Bar chart]
+
+sales_by_task = (
+    df_selection.groupby(by=["Task"]).sum()[["Lead Price Total"]].sort_values(by="Lead Price Total")
+)
+
+fig_task_sales = px.bar(
+    sales_by_task,
+    x="Lead Price Total",
+    y=sales_by_task.index,
+    orientation="h",
+    title="<b>Sales by Task</b>",
+    color_discrete_sequence=["#0083B8"] * len(sales_by_task),
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_task_sales)
