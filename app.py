@@ -94,4 +94,9 @@ fig_task_sales = px.bar(
     template="plotly_white"
 )
 
+fig_task_sales.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+
 st.plotly_chart(fig_task_sales)
