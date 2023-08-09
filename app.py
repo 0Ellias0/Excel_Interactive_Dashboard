@@ -99,8 +99,6 @@ fig_task_sales.update_layout(
     xaxis=(dict(showgrid=False))
 )
 
-st.plotly_chart(fig_task_sales)
-
 # Cake chart 
 
 billable_distribution = df_selection["Billable"].value_counts()
@@ -112,4 +110,6 @@ fig_billable = px.pie(
     title = 'Billable distribution'
 )
 
-st.plotly_chart(fig_billable)
+left_column, right_column = st.columns(2)
+left_column.plotly_chart(fig_task_sales, use_container_width=True)
+right_column.plotly_chart(fig_billable, use_container_width=True)
