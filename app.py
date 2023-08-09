@@ -100,3 +100,16 @@ fig_task_sales.update_layout(
 )
 
 st.plotly_chart(fig_task_sales)
+
+# Cake chart 
+
+billable_distribution = df_selection["Billable"].value_counts()
+
+
+fig_billable = px.pie(
+    values = billable_distribution,
+    names = billable_distribution.index,
+    title = 'Billable distribution'
+)
+
+st.plotly_chart(fig_billable)
