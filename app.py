@@ -10,7 +10,7 @@ st.set_page_config(page_title="Partner calls",
 
 
 #read data 
-df = pd.read_csv("Datos.csv",sep=";")
+df = pd.read_csv("Datos.csv",sep=";", encoding='utf-8')
 
 
 # sidebar to gather the user's filter 
